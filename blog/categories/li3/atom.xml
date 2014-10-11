@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Li3 | #morcmarc]]></title>
+  <link href="http://morcmarc.com/blog/categories/li3/atom.xml" rel="self"/>
+  <link href="http://morcmarc.com/"/>
+  <updated>2014-10-10T16:55:58+01:00</updated>
+  <id>http://morcmarc.com/</id>
+  <author>
+    <name><![CDATA[Marcell Jusztin]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Routing by Query Parameter in Lithium]]></title>
+    <link href="http://morcmarc.com/blog/2012/08/27/routing-by-query-parameter-in-lithium/"/>
+    <updated>2012-08-27T17:24:00+01:00</updated>
+    <id>http://morcmarc.com/blog/2012/08/27/routing-by-query-parameter-in-lithium</id>
+    <content type="html"><![CDATA[<p>The following routing pattern can be used to map SOAP like web service requests where you have one API endpoint and method calls are passed via a query parameter to RESTful URLs. Example: <code>/Products?method=getAll</code> => <code>/Products/getAll</code>
+<figure class='code'><figcaption><span>Add new route - Routes.php </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">hellip</span><span class="p">;</span>
+</span><span class='line'><span class="nx">Router</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">/</span><span class="p">{</span><span class="o">:</span><span class="nx">controller</span><span class="p">}</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="k">array</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">controller</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">=&gt;</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;{</span><span class="o">:</span><span class="nx">controller</span><span class="p">}</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;),</span> <span class="k">function</span><span class="p">(</span><span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">action</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;]))</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">params</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">action</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;]</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">action</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;]</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">hellip</span><span class="p">;</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+Lambdas are amazing&hellip;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lithium Quick Tip for Queries With Join]]></title>
+    <link href="http://morcmarc.com/blog/2012/08/27/lithium-quick-tip-for-queries-with-join/"/>
+    <updated>2012-08-27T17:09:00+01:00</updated>
+    <id>http://morcmarc.com/blog/2012/08/27/lithium-quick-tip-for-queries-with-join</id>
+    <content type="html"><![CDATA[<p>When you are querying Models with relationships and you want to include the joined Models in your result list don&rsquo;t forget to use instances in your conditions. Example:
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span>
+</span><span class='line'><span class="nx">Users</span><span class="o">::</span><span class="na">first</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>  <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">with</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">Posts</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;)</span>
+</span><span class='line'><span class="p">));</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+This should return an error message about ambiguous ids. To fix the error you&rsquo;ll need to do the following:
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span>
+</span><span class='line'><span class="nx">Users</span><span class="o">::</span><span class="na">first</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>  <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">conditions</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">Users</span><span class="o">.</span><span class="nx">id</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">=&gt;</span> <span class="mi">1</span> <span class="c1">// Note the instance name</span>
+</span><span class='line'>  <span class="p">),</span>
+</span><span class='line'>  <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">with</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">Posts</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">)</span>
+</span><span class='line'><span class="p">));</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+Also watch out for case-sensitivity; code running on Windows might fail on Linux due to inconsistent namings, this applies to your database table names as well. Stick to the <a href="http://lithify.me/docs/manual/quality-code/coding-standards.wiki">conventions</a> and you&rsquo;ll be fine.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lithium Custom Finder]]></title>
+    <link href="http://morcmarc.com/blog/2012/08/25/lithium-custom-finder/"/>
+    <updated>2012-08-25T15:36:00+01:00</updated>
+    <id>http://morcmarc.com/blog/2012/08/25/lithium-custom-finder</id>
+    <content type="html"><![CDATA[<p>Finders in Lithium provides you with the option to define easily accessible custom queries for your Model following the principles of DRY and MVC. Thanks to Lithium&rsquo;s Aspect Oriented filter system you can achieve a Ruby-like pattern with just a few short lines.</p>
+
+<!--more-->
+
+
+<p>First you need to tell your Model that you would like to use finders. Drop the following code into your model under <code>app\models\</code>:</p>
+
+<p><figure class='code'><figcaption><span>Initialize Model - app\models\SomeModel.php </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">app\models</span><span class="p">;</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="k">class</span> <span class="nc">SomeModel</span> <span class="k">extends</span> <span class="nx">\lithium\data\Model</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="err">&lt;</span><span class="nf">strong</span><span class="o">&gt;</span><span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">parent</span><span class="o">::&lt;/</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">init</span><span class="p">();</span>
+</span><span class='line'>        <span class="c1">// Your finders go here</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Next you can start implementing your custom finders inside the <code>__init()</code> method.</p>
+
+<p><figure class='code'><figcaption><span>Extend basic finder with custom method - app\models\SomeModel.php </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">hellip</span><span class="p">;</span>
+</span><span class='line'><span class="k">static</span><span class="o">::</span><span class="na">finder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">myFinder</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$self</span><span class="p">,</span> <span class="nv">$params</span><span class="p">,</span> <span class="nv">$chain</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// Put your query paramaters in the $params[&amp;lsquo;options&amp;rsquo;] array.</span>
+</span><span class='line'>  <span class="c1">// You can use any of the parameters that you would use in an ordinary find method.</span>
+</span><span class='line'>  <span class="nv">$params</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">options</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;][</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">fields</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">name</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">title</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="p">);</span>
+</span><span class='line'>  <span class="nv">$params</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">options</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;][</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">limit</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>  <span class="nv">$params</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">options</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;][</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">with</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">ModelA</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">ModelB</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="p">);</span>
+</span><span class='line'>  <span class="nv">$params</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">options</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;][</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">conditions</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>     <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">name</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span>  <span class="o">=&gt;</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">something</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span>
+</span><span class='line'>     <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">title</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">=&gt;</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="k">This</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">Title</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span>
+</span><span class='line'>   <span class="p">);</span>
+</span><span class='line'>  <span class="c1">// Pass along the query and retrieve the data object</span>
+</span><span class='line'>  <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$chain</span><span class="o">-&gt;</span><span class="na">next</span><span class="p">(</span><span class="nv">$self</span><span class="p">,</span> <span class="nv">$params</span><span class="p">,</span> <span class="nv">$chain</span><span class="p">);</span>
+</span><span class='line'>  <span class="c1">// Return the data object if not null</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nv">$data</span> <span class="o">?:</span> <span class="k">null</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">hellip</span><span class="p">;</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+That&rsquo;s it basically, you can start using your new finder like so:</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span>
+</span><span class='line'>    <span class="nx">SomeModel</span><span class="o">::</span><span class="na">myFinder</span><span class="p">(</span> <span class="p">);</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>In case you have to pass a variable to your finder method you can re-use the default <code>id</code> parameter. For example you would like to find a user by username:</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span>
+</span><span class='line'>    <span class="nx">Users</span><span class="o">::</span><span class="na">findByUsername</span><span class="p">(</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">admin</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="p">);</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>This will pass the &lsquo;admin&rsquo; string as an <code>'id' =&gt; 'admin'</code> condition parameter which you can then re-assign to the proper field:</p>
+
+<p><figure class='code'><figcaption><span>Re-using ID parameter - app\models\Users.php </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span>
+</span><span class='line'><span class="nv">$params</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">options</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;][</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">conditions</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">username</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">options</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;][</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">conditions</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;][</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">id</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;];</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h2>Resources</h2>
+
+<p>You can find more info on <a href="http://nitschinger.at/Custom-Finders-with-Lithium">Michael Nitschinger&rsquo;s Blog</a> or in the <a href="http://lithify.me/docs/manual/working-with-data/using-models.wiki">Lithium &ldquo;documentation&rdquo;</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

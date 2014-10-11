@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  
+  <url>
+    <loc>http://morcmarc.com/blog/2012/08/27/routing-by-query-parameter-in-lithium/</loc>
+    
+    <lastmod>2012-08-27T17:24:00+01:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://morcmarc.com/blog/2012/08/27/lithium-quick-tip-for-queries-with-join/</loc>
+    
+    <lastmod>2012-08-27T17:09:00+01:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://morcmarc.com/blog/2012/08/25/lithium-custom-finder/</loc>
+    
+    <lastmod>2012-08-25T15:36:00+01:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://morcmarc.com/blog/2012/05/10/setting-up-tdd-for-php-on-mac-os-x-lion/</loc>
+    
+    <lastmod>2012-05-10T18:21:00+01:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://morcmarc.com/blog/2012/05/07/reboot/</loc>
+    
+    <lastmod>2012-05-07T12:55:00+01:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  
+  <url>
+    <loc>http://morcmarc.com/categories/</loc>
+    <lastmod>2014-10-10T16:55:58+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://morcmarc.com/archives/</loc>
+    <lastmod>2014-10-10T16:55:58+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://morcmarc.com/</loc>
+    <lastmod>2014-10-10T16:55:58+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://morcmarc.com/about/</loc>
+    <lastmod>2014-10-10T16:55:58+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://morcmarc.com/projects/</loc>
+    <lastmod>2014-10-10T16:55:58+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://morcmarc.com/posts/</loc>
+    <lastmod>2014-10-10T16:55:58+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  
+  
+</urlset>

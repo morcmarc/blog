@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blog | #morcmarc]]></title>
   <link href="http://morcmarc.com/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://morcmarc.com/"/>
-  <updated>2014-10-10T16:55:58+01:00</updated>
+  <updated>2014-10-11T13:21:02+01:00</updated>
   <id>http://morcmarc.com/</id>
   <author>
     <name><![CDATA[Marcell Jusztin]]></name>
@@ -18,7 +18,7 @@
     <link href="http://morcmarc.com/blog/2012/05/07/reboot/"/>
     <updated>2012-05-07T12:55:00+01:00</updated>
     <id>http://morcmarc.com/blog/2012/05/07/reboot</id>
-    <content type="html"><![CDATA[<p><img class="left" src="/images/posts/octopress-logo.png">Recently I stumbled across <a href="http://octopress.org/">Octopress</a>, a <a href="http://jekyllrb.com/">Jekyll</a> based blogging framework. The first thing that grabbed my attention is that I can write my content in markdown. As I was always feeling frustrated when I had to use Wordpress&#8217; editor I felt  that it might be a good time for a change.</p>
+    <content type="html"><![CDATA[<p>Recently I stumbled across <a href="http://octopress.org/">Octopress</a>, a <a href="http://jekyllrb.com/">Jekyll</a> based blogging framework. The first thing that grabbed my attention is that I can write my content in markdown. As I was always feeling frustrated when I had to use Wordpress&#8217; editor I felt  that it might be a good time for a change.</p>
 
 <p>Even though I was never a prolific blogger I knew that it is mostly because of the fact that I have to spend too much time on styling and such things and <em>time is gold</em>. All I wanted is a simple, elegant way to share my ideas and thoughts.</p>
 

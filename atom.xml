@@ -4,7 +4,7 @@
   <title><![CDATA[#morcmarc]]></title>
   <link href="http://morcmarc.com/atom.xml" rel="self"/>
   <link href="http://morcmarc.com/"/>
-  <updated>2014-10-11T13:21:02+01:00</updated>
+  <updated>2015-04-20T16:04:40+01:00</updated>
   <id>http://morcmarc.com/</id>
   <author>
     <name><![CDATA[Marcell Jusztin]]></name>
@@ -18,31 +18,33 @@
     <link href="http://morcmarc.com/blog/2012/08/27/routing-by-query-parameter-in-lithium/"/>
     <updated>2012-08-27T17:24:00+01:00</updated>
     <id>http://morcmarc.com/blog/2012/08/27/routing-by-query-parameter-in-lithium</id>
-    <content type="html"><![CDATA[<p>The following routing pattern can be used to map SOAP like web service requests where you have one API endpoint and method calls are passed via a query parameter to RESTful URLs. Example: <code>/Products?method=getAll</code> => <code>/Products/getAll</code></p>
+    <content type="html"><![CDATA[<p>The following routing pattern can be used to map SOAP like web service requests where you have one API endpoint and method calls are passed via a query parameter to RESTful URLs. Example: <code>/Products?method=getAll</code> =&gt; <code>/Products/getAll</code></p>
 
-<figure class='code'><figcaption><span>Add new route - Routes.php </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="nx">Router</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;/{:controller}&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;{:controller}&#39;</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]))</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">params</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
+<div><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+</pre></td>
+  <td class="code"><pre><span class="constant">Router</span>::connect(
+  <span class="string"><span class="delimiter">'</span><span class="content">/{:controller}</span><span class="delimiter">'</span></span>, 
+  <span class="predefined">array</span>(<span class="string"><span class="delimiter">'</span><span class="content">controller</span><span class="delimiter">'</span></span> =&gt; <span class="string"><span class="delimiter">'</span><span class="content">{:controller}</span><span class="delimiter">'</span></span>),
+  <span class="keyword">function</span>(<span class="local-variable">$request</span>) {
+    <span class="keyword">if</span> (<span class="predefined">isset</span>(<span class="local-variable">$request</span>-&gt;query[<span class="string"><span class="delimiter">'</span><span class="content">action</span><span class="delimiter">'</span></span>])) {
+        <span class="local-variable">$request</span>-&gt;params[<span class="string"><span class="delimiter">'</span><span class="content">action</span><span class="delimiter">'</span></span>] = <span class="local-variable">$request</span>-&gt;query[<span class="string"><span class="delimiter">'</span><span class="content">action</span><span class="delimiter">'</span></span>]
+    }
+  }
+);
+</pre></td>
+</tr></table>
+</div>
 
-
-<p>Lambdas are amazing&hellip;</p>
+<p>Lambdas are amazing…</p>
 ]]></content>
   </entry>
   
@@ -51,47 +53,45 @@
     <link href="http://morcmarc.com/blog/2012/08/27/lithium-quick-tip-for-queries-with-join/"/>
     <updated>2012-08-27T17:09:00+01:00</updated>
     <id>http://morcmarc.com/blog/2012/08/27/lithium-quick-tip-for-queries-with-join</id>
-    <content type="html"><![CDATA[<p>When you are querying Models with relationships and you want to include the joined Models in your result list don&rsquo;t forget to use instances in your conditions. Example:</p>
+    <content type="html"><![CDATA[<p>When you are querying Models with relationships and you want to include the joined Models in your result list don’t forget to use instances in your conditions. Example:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="nx">Users</span><span class="o">::</span><span class="na">first</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-</span><span class='line'>  <span class="s1">&#39;with&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Posts&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="p">));</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
+<div><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+</pre></td>
+  <td class="code"><pre><span class="constant">Users</span>::first(<span class="integer">1</span>, <span class="predefined">array</span>(
+  <span class="string"><span class="delimiter">'</span><span class="content">with</span><span class="delimiter">'</span></span> =&gt; <span class="predefined">array</span>(<span class="string"><span class="delimiter">'</span><span class="content">Posts</span><span class="delimiter">'</span></span>)
+));
+</pre></td>
+</tr></table>
+</div>
 
+<p>This should return an error message about ambiguous ids. To fix the error you’ll need to do the following:</p>
 
-<p>This should return an error message about ambiguous ids. To fix the error you&rsquo;ll need to do the following:</p>
+<div><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+</pre></td>
+  <td class="code"><pre><span class="constant">Users</span>::first(<span class="predefined">array</span>(
+  <span class="string"><span class="delimiter">'</span><span class="content">conditions</span><span class="delimiter">'</span></span> =&gt; <span class="predefined">array</span>(
+    <span class="string"><span class="delimiter">'</span><span class="content">Users.id</span><span class="delimiter">'</span></span> =&gt; <span class="integer">1</span> <span class="comment">// Note the instance name</span>
+  ),
+  <span class="string"><span class="delimiter">'</span><span class="content">with</span><span class="delimiter">'</span></span> =&gt; <span class="predefined">array</span>(
+    <span class="string"><span class="delimiter">'</span><span class="content">Posts</span><span class="delimiter">'</span></span>
+  )
+));
+</pre></td>
+</tr></table>
+</div>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="nx">Users</span><span class="o">::</span><span class="na">first</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
-</span><span class='line'>  <span class="s1">&#39;conditions&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-</span><span class='line'>    <span class="s1">&#39;Users.id&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span> <span class="c1">// Note the instance name</span>
-</span><span class='line'>  <span class="p">),</span>
-</span><span class='line'>  <span class="s1">&#39;with&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-</span><span class='line'>    <span class="s1">&#39;Posts&#39;</span>
-</span><span class='line'>  <span class="p">)</span>
-</span><span class='line'><span class="p">));</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Also watch out for case-sensitivity; code running on Windows might fail on Linux due to inconsistent namings, this applies to your database table names as well. Stick to the <a href="http://lithify.me/docs/manual/quality-code/coding-standards.wiki">conventions</a> and you&rsquo;ll be fine.</p>
+<p>Also watch out for case-sensitivity; code running on Windows might fail on Linux due to inconsistent namings, this applies to your database table names as well. Stick to the <a href="http://lithify.me/docs/manual/quality-code/coding-standards.wiki">conventions</a> and you’ll be fine.</p>
 ]]></content>
   </entry>
   
@@ -100,373 +100,114 @@
     <link href="http://morcmarc.com/blog/2012/08/25/lithium-custom-finder/"/>
     <updated>2012-08-25T15:36:00+01:00</updated>
     <id>http://morcmarc.com/blog/2012/08/25/lithium-custom-finder</id>
-    <content type="html"><![CDATA[<p>Finders in Lithium provides you with the option to define easily accessible custom queries for your Model following the principles of DRY and MVC. Thanks to Lithium&rsquo;s Aspect Oriented filter system you can achieve a Ruby-like pattern with just a few short lines.</p>
+    <content type="html"><![CDATA[<p>Finders in Lithium provides you with the option to define easily accessible custom queries for your Model following the principles of DRY and MVC. Thanks to Lithium’s Aspect Oriented filter system you can achieve a Ruby-like pattern with just a few short lines.</p>
 
 <!--more-->
-
 
 <p>First you need to tell your Model that you would like to use finders. Drop the following code into your model under <code>app\models\</code>:</p>
 
-<figure class='code'><figcaption><span>Initialize Model - app\models\SomeModel.php </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="k">namespace</span> <span class="nx">app\models</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">SomeModel</span> <span class="k">extends</span> <span class="nx">\lithium\data\Model</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">__init</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="k">parent</span><span class="o">::</span><span class="na">__init</span><span class="p">();</span>
-</span><span class='line'>      <span class="c1">// Your finders go here</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>Initialize Model - app\models\SomeModel.php </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class="line"><span class="k">namespace</span> <span class="nx">app\models</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line"><span class="k">class</span> <span class="nc">SomeModel</span> <span class="k">extends</span> <span class="nx">\lithium\data\Model</span> <span class="p">{</span>
+</span><span class="line">	<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">__init</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="line">    	<span class="k">parent</span><span class="o">::</span><span class="na">__init</span><span class="p">();</span>
+</span><span class="line">    	<span class="c1">// Your finders go here</span>
+</span><span class="line">	<span class="p">}</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line"><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>Next you can start implementing your custom finders inside the <code>__init()</code> method.</p>
 
-<figure class='code'><figcaption><span>Extend basic finder with custom method - app\models\SomeModel.php </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="k">static</span><span class="o">::</span><span class="na">finder</span><span class="p">(</span><span class="s1">&#39;myFinder&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$self</span><span class="p">,</span> <span class="nv">$params</span><span class="p">,</span> <span class="nv">$chain</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="c1">// Put your query paramaters in the $params[&#39;options&#39;] array. </span>
-</span><span class='line'>  <span class="c1">// You can use any of the parameters that you would use in an ordinary find method.</span>
-</span><span class='line'>  <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;fields&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span> <span class="p">);</span>
-</span><span class='line'>  <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>  <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;with&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;ModelA&#39;</span><span class="p">,</span> <span class="s1">&#39;ModelB&#39;</span> <span class="p">);</span>
-</span><span class='line'>  <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;conditions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-</span><span class='line'>   <span class="s1">&#39;name&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;something&#39;</span><span class="p">,</span>
-</span><span class='line'>   <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;This is a Title&#39;</span>
-</span><span class='line'>   <span class="p">);</span>
-</span><span class='line'>  <span class="c1">// Pass along the query and retrieve the data object</span>
-</span><span class='line'>  <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$chain</span><span class="o">-&gt;</span><span class="na">next</span><span class="p">(</span><span class="nv">$self</span><span class="p">,</span> <span class="nv">$params</span><span class="p">,</span> <span class="nv">$chain</span><span class="p">);</span>
-</span><span class='line'>  <span class="c1">// Return the data object if not null</span>
-</span><span class='line'>  <span class="k">return</span> <span class="nv">$data</span> <span class="o">?:</span> <span class="k">null</span><span class="p">;</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>Extend basic finder with custom method - app\models\SomeModel.php </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class="line"><span class="o">...</span>
+</span><span class="line"><span class="k">static</span><span class="o">::</span><span class="na">finder</span><span class="p">(</span><span class="s1">&#39;myFinder&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$self</span><span class="p">,</span> <span class="nv">$params</span><span class="p">,</span> <span class="nv">$chain</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">  <span class="c1">// Put your query paramaters in the $params[&#39;options&#39;] array. </span>
+</span><span class="line">  <span class="c1">// You can use any of the parameters that you would use in an ordinary find method.</span>
+</span><span class="line">  <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;fields&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span> <span class="p">);</span>
+</span><span class="line">  <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="line">  <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;with&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;ModelA&#39;</span><span class="p">,</span> <span class="s1">&#39;ModelB&#39;</span> <span class="p">);</span>
+</span><span class="line">  <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;conditions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class="line">	 <span class="s1">&#39;name&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;something&#39;</span><span class="p">,</span>
+</span><span class="line">	 <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;This is a Title&#39;</span>
+</span><span class="line">   <span class="p">);</span>
+</span><span class="line">  <span class="c1">// Pass along the query and retrieve the data object</span>
+</span><span class="line">  <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$chain</span><span class="o">-&gt;</span><span class="na">next</span><span class="p">(</span><span class="nv">$self</span><span class="p">,</span> <span class="nv">$params</span><span class="p">,</span> <span class="nv">$chain</span><span class="p">);</span>
+</span><span class="line">  <span class="c1">// Return the data object if not null</span>
+</span><span class="line">  <span class="k">return</span> <span class="nv">$data</span> <span class="o">?:</span> <span class="k">null</span><span class="p">;</span>
+</span><span class="line"><span class="p">});</span>
+</span><span class="line"><span class="o">...</span>
+</span><span class="line"><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>That’s it basically, you can start using your new finder like so:</p>
 
-
-<p>That&rsquo;s it basically, you can start using your new finder like so:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'>  <span class="nx">SomeModel</span><span class="o">::</span><span class="na">myFinder</span><span class="p">(</span> <span class="p">);</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class="line">	<span class="nx">SomeModel</span><span class="o">::</span><span class="na">myFinder</span><span class="p">(</span> <span class="p">);</span>
+</span><span class="line"><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>In case you have to pass a variable to your finder method you can re-use the default <code>id</code> parameter. For example you would like to find a user by username:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'>  <span class="nx">Users</span><span class="o">::</span><span class="na">findByUsername</span><span class="p">(</span> <span class="s1">&#39;admin&#39;</span> <span class="p">);</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This will pass the &lsquo;admin&rsquo; string as an <code>'id' =&gt; 'admin'</code> condition parameter which you can then re-assign to the proper field:</p>
-
-<figure class='code'><figcaption><span>Re-using ID parameter - app\models\Users.php </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;conditions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-</span><span class='line'>  <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;conditions&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">];</span>
-</span><span class='line'><span class="p">);</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Resources</h2>
-
-<p>You can find more info on <a href="http://nitschinger.at/Custom-Finders-with-Lithium">Michael Nitschinger&rsquo;s Blog</a> or in the <a href="http://lithify.me/docs/manual/working-with-data/using-models.wiki">Lithium &ldquo;documentation&rdquo;</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[TDD With PHPUnit on Mac OS X Lion]]></title>
-    <link href="http://morcmarc.com/blog/2012/05/10/setting-up-tdd-for-php-on-mac-os-x-lion/"/>
-    <updated>2012-05-10T18:21:00+01:00</updated>
-    <id>http://morcmarc.com/blog/2012/05/10/setting-up-tdd-for-php-on-mac-os-x-lion</id>
-    <content type="html"><![CDATA[<p>Test-Driven Development has been around for a while now as more and more companies are using Agile or Extreme Development principles in their daily coding business. Many advanced web frameworks come with built-in support for some kind of testing tool or make it easy to integrate one into your setup. Today I would like to share my experience on getting started with TDD on PHPUnit. I will also show how to setup Code Coverage and Selenium.</p>
-
-<!--more-->
-
-
-<h2>Prerequisites</h2>
-
-<p>I assume you have the latest Mac OS X Lion installed (10.7.4 at the time of writing this article). I&rsquo;m going to use PHP 5.3.10 shipped with the OS. I don&rsquo;t suggest using LAMP environments as they can casue unwanted issues unless you know what you are doing. Spending some time on upgrading and configuring the existing packages can be a well-worth investment anyways. In case you have to use a different PHP version you might want to check out <a href="https://github.com/c9s/phpbrew">phpbrew</a> which gives an RVM-like way to manage several PHP versions.</p>
-
-<p>You should also have the latest XCode installed (or GCC with necessary libraries)</p>
-
-<h2>Installing PEAR</h2>
-
-<p>First, we need to install <a href="pear.php.net">PEAR</a>, the package manager for PHP. Open a terminal and execute the following commands:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>wget http://pear.php.net/go-pear.phar
-</span><span class='line'>php -d <span class="nv">detect_unicode</span><span class="o">=</span><span class="m">0</span> go-pear.phar
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I suggest setting the <code>$prefix</code> to <code>/usr/local/pear</code>, but it&rsquo;s up to you where you want to put your files.</p>
-
-<p>Next we have to add PEAR to the PATH variable (I prefer ZSH over bash, please update the filename in case you are using a different terminal) then we can run a test:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">echo</span> <span class="s1">&#39;export PATH=/usr/local/pear/bin:$PATH&#39;</span> &gt;&gt; ~/.zshrc
-</span><span class='line'><span class="nb">source</span> ~/.zshrc
-</span><span class='line'>pear
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Installing PHPUnit</h2>
-
-<p>We can now move to <a href="https://github.com/sebastianbergmann/phpunit/">PHPUnit</a>. Type:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>pear config-set auto_discover 1
-</span><span class='line'>pear install pear.phpunit.de/PHPUnit
-</span><span class='line'>pear install phpunit/DbUnit
-</span><span class='line'>pear install phpunit/PHPUnit_Selenium
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Let&rsquo;s test. Create a new file and paste the following code:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="c1">//BankAccountTest.php</span>
-</span><span class='line'><span class="k">require_once</span> <span class="s1">&#39;BankAccount.php&#39;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">BankAccountTest</span> <span class="k">extends</span> <span class="nx">PHPUnit_Framework_TestCase</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="nv">$ba</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">setUp</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">ba</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BankAccount</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We can run our test case (and watch it fail) by running:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>phpunit BankAccountTest
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Congratulations! You can start developing your PHP application with TDD. The following steps are optional but I strongly suggest to keep going on.</p>
-
-<h2>Setting up Code Coverage</h2>
-
-<p>In order to make the Code Coverage module work we have to install XDebug. <a href="http://kubyshkin.ru/programming/installing-php-xdebug-extension-on-mac-os-x-10-7-lion/">Dmitriy Kubyshkin</a> posted a great article on the matter. The easiest way is to get a binary from <a href="http://code.activestate.com/komodo/remotedebugging/">ActiveState</a>.  Extract the 5.3 binary <code>xdebug.so</code> and move it to <code>usr/lib/php/extensions/no-debug-non-zts-20090626/</code>. Then you need to enable the module in your <code>php.ini</code> file which is located under <code>/etc/</code>. In case you can&rsquo;t see it create a copy from the template:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo cp /private/etc/php.ini.default /etc/php.ini
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Open up the file and paste the following at end:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[xdebug]
-</span><span class='line'>zend_extension=/usr/lib/php/extensions/no-debug-non-zts-20090626/xdebug.so
-</span><span class='line'>xdebug.file_link_format="txmt://open?url=file://%f&line=%1"
-</span><span class='line'>xdebug.remote_enable = On
-</span><span class='line'>xdebug.remote_autostart = 1</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then restart your apache.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apachectl restart
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we can start generating our reports:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>phpunit --coverage-html ./report BankAccountTest
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Selenium</h2>
-
-<p>Selenium is a great automated testing tool. They have different solutions tailored to your business needs. To get us up and running quickly with Selenium I&rsquo;m going to use their Grid2 package.</p>
-
-<p>First, download the standalone server <code>JAR</code> file from <a href="http://code.google.com/p/selenium/downloads/list">here</a>. Next you have to start up the Hub (replace version number accordingly):</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>java -jar selenium-server-standalone-2.14.0.jar -role hub
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can view the status of the hub by opening a browser window and navigating to: <a href="http://localhost:4444/grid/console">http://localhost:4444/grid/console</a>.</p>
-
-<p>Open a new terminal tab and run the following to start a Node:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>java -jar selenium-server-standalone-2.14.0.jar -role node  -hub http://localhost:4444/grid/register
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>For further configuration options and documentation visit <a href="http://code.google.com/p/selenium/wiki/Grid2">http://code.google.com/p/selenium/wiki/Grid2</a></p>
-
-<p>Now that we have our servers running we can start writing our tests:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="c1">//WebTest.php</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">WebTest</span> <span class="k">extends</span> <span class="nx">PHPUnit_Extensions_Selenium2TestCase</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">setUp</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setBrowser</span><span class="p">(</span><span class="s1">&#39;firefox&#39;</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setBrowserUrl</span><span class="p">(</span><span class="s1">&#39;http://www.example.com/&#39;</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">testTitle</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">url</span><span class="p">(</span><span class="s1">&#39;http://www.example.com/&#39;</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="s1">&#39;Example WWW Page&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">());</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>phpunit WebTest
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>PHPUnit 3.6.10 by Sebastian Bergmann.
-</span><span class='line'>
-</span><span class='line'>F
-</span><span class='line'>
-</span><span class='line'>Time: <span class="m">9</span> seconds, Memory: 3.00Mb
-</span><span class='line'>
-</span><span class='line'>There was <span class="m">1</span> failure:
-</span><span class='line'>
-</span><span class='line'>1<span class="o">)</span> WebTest::testTitle
-</span><span class='line'>Failed asserting that two strings are equal.
-</span><span class='line'>--- Expected
-</span><span class='line'>+++ Actual
-</span><span class='line'>@@ @@
-</span><span class='line'>-<span class="s1">&#39;Example WWW Page&#39;</span>
-</span><span class='line'>+<span class="s1">&#39;IANA — Example domains&#39;</span>
-</span><span class='line'>
-</span><span class='line'>/home/macbookpro/WebTest.php:13
-</span><span class='line'>
-</span><span class='line'>FAILURES!
-</span><span class='line'>Tests: 1, Assertions: 1, Failures: 1.
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>End</h2>
-
-<p>Thanks for reading. Please leave a comment below and let me know if you have any questions or suggestions.</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class="line">	<span class="nx">Users</span><span class="o">::</span><span class="na">findByUsername</span><span class="p">(</span> <span class="s1">&#39;admin&#39;</span> <span class="p">);</span>
+</span><span class="line"><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>This will pass the ‘admin’ string as an <code>'id' =&gt; 'admin'</code> condition parameter which you can then re-assign to the proper field:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>Re-using ID parameter - app\models\Users.php </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class="line"><span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;conditions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class="line">	<span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;conditions&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">];</span>
+</span><span class="line"><span class="p">);</span>
+</span><span class="line"><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="resources">Resources</h2>
+<p>You can find more info on <a href="http://nitschinger.at/Custom-Finders-with-Lithium">Michael Nitschinger’s Blog</a> or in the <a href="http://lithify.me/docs/manual/working-with-data/using-models.wiki">Lithium “documentation”</a>.</p>
 ]]></content>
   </entry>
   
@@ -475,51 +216,51 @@
     <link href="http://morcmarc.com/blog/2012/05/07/reboot/"/>
     <updated>2012-05-07T12:55:00+01:00</updated>
     <id>http://morcmarc.com/blog/2012/05/07/reboot</id>
-    <content type="html"><![CDATA[<p>Recently I stumbled across <a href="http://octopress.org/">Octopress</a>, a <a href="http://jekyllrb.com/">Jekyll</a> based blogging framework. The first thing that grabbed my attention is that I can write my content in markdown. As I was always feeling frustrated when I had to use Wordpress&#8217; editor I felt  that it might be a good time for a change.</p>
+    <content type="html"><![CDATA[<p>Recently I stumbled across <a href="http://octopress.org/">Octopress</a>, a <a href="http://jekyllrb.com/">Jekyll</a> based blogging framework. The first thing that grabbed my attention is that I can write my content in markdown. As I was always feeling frustrated when I had to use Wordpress’ editor I felt  that it might be a good time for a change.</p>
 
-<p>Even though I was never a prolific blogger I knew that it is mostly because of the fact that I have to spend too much time on styling and such things and <em>time is gold</em>. All I wanted is a simple, elegant way to share my ideas and thoughts.</p>
+<p>Even though I was never a prolific blogger I knew that it is mostly because of the fact that I have to spend too much time on styling and such things and <em>time is gold</em>. All I wanted is a simple, elegant way to share my ideas and thoughts. </p>
 
-<h2>First Steps</h2>
+<h2 id="first-steps">First Steps</h2>
 
-<blockquote><p>A blogging framework for hackers.</p></blockquote>
+<blockquote>
+  <p>A blogging framework for hackers.</p>
+</blockquote>
 
 <p>Despite of the motto, installing Octopress was as straightforward as possible and most importantly: <strong>quick</strong>. I just did what the documentation described and I was up and running in a matter of minutes.</p>
 
-<p>Here I have to make a note that I&rsquo;ve already had a working RVM managed Ruby environment installed on my Mac.</p>
+<p>Here I have to make a note that I’ve already had a working RVM managed Ruby environment installed on my Mac.</p>
 
 <!--more-->
 
-
-<h2>What&rsquo;s Next?</h2>
+<h2 id="whats-next">What’s Next?</h2>
 
 <p>So I had my new, lightning fast, <em>databaseless</em> blog ready to be published. The built-in plugins such as Google Analytics, Github, Twitter, Facebook, Disqus, and Google+ came alive instantly (really, it is just opening up that one config file and filling in the right fields).</p>
 
-<p>Now, I had to decide whether I want my old blog post to be migrated to the new system or not. <em>&ldquo;Yes, please&rdquo;</em>. After just a few seconds of googling I found <a href="http://www.kevinquillen.com/blog/2012/01/04/bye-wordpress/">Kevin Quillen&rsquo;s blog post</a> about the necessary steps needed in order to achieve this.</p>
+<p>Now, I had to decide whether I want my old blog post to be migrated to the new system or not. <em>“Yes, please”</em>. After just a few seconds of googling I found <a href="http://www.kevinquillen.com/blog/2012/01/04/bye-wordpress/">Kevin Quillen’s blog post</a> about the necessary steps needed in order to achieve this.</p>
 
-<p>That&rsquo;s where things have started to become a bit complicated. <a href="https://github.com/chitsaou/exitwp">Exitwp</a> does not say which version of <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> you need. I thought it&rsquo;s not a problem, probably the latest&hellip; well, no. What you need is 3.2.1 and you can download it <a href="http://www.crummy.com/software/BeautifulSoup/download/3.x/BeautifulSoup-3.2.1.tar.gz">here</a>. Of course I had to install the python modules manually with <code>python setup.py install</code> as I don&rsquo;t have apt-get nor yum (I haven&rsquo;t tried brewing the packages, please let me know if it&rsquo;s possible).</p>
+<p>That’s where things have started to become a bit complicated. <a href="https://github.com/chitsaou/exitwp">Exitwp</a> does not say which version of <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> you need. I thought it’s not a problem, probably the latest… well, no. What you need is 3.2.1 and you can download it <a href="http://www.crummy.com/software/BeautifulSoup/download/3.x/BeautifulSoup-3.2.1.tar.gz">here</a>. Of course I had to install the python modules manually with <code>python setup.py install</code> as I don’t have apt-get nor yum (I haven’t tried brewing the packages, please let me know if it’s possible).</p>
 
 <p>The rest was easy, <a href="http://disqus.com">Disq.us</a> has great tools and interface for these otherwise pesky tasks.</p>
 
-<h2>But&hellip;</h2>
+<h2 id="but">But…</h2>
 
 <p>Then I had to face the ugly truth that my previous code styling is not really compatible with Exitwp and everything was a mess, BUT all the tags, categories and content made it to Octopress in one piece which was really impressive as I was using custom styling, tables in my Wordpress posts.</p>
 
-<p>Also, sad but true, my old code snippets were out-dated and one or two of them are not even working properly anymore. It was a hard but necessary decision to make. All my &ldquo;hard&rdquo; work went to the rubbish, except the experience I gained during the process which I hope I can use wisely in the future.</p>
+<p>Also, sad but true, my old code snippets were out-dated and one or two of them are not even working properly anymore. It was a hard but necessary decision to make. All my “hard” work went to the rubbish, except the experience I gained during the process which I hope I can use wisely in the future. </p>
 
 <p>I will make the old website available later and I will also set up a 301 redirect.</p>
 
-<h2>Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 
 <p>As Kevin has said:</p>
 
 <ul>
-<li>No database</li>
-<li>No security patches (plugins can be a pain in the ass on Wordpress)</li>
-<li>Speed</li>
-<li>Built-in plugins</li>
-<li>Novelty</li>
+  <li>No database</li>
+  <li>No security patches (plugins can be a pain in the ass on Wordpress)</li>
+  <li>Speed</li>
+  <li>Built-in plugins</li>
+  <li>Novelty</li>
 </ul>
-
 
 <p>I am keen to blog again.</p>
 ]]></content>

@@ -63,7 +63,6 @@
 <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
-
 </head>
 
 <body id="post" class="feature">
@@ -128,31 +127,33 @@
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
-      <p>The following routing pattern can be used to map SOAP like web service requests where you have one API endpoint and method calls are passed via a query parameter to RESTful URLs. Example: <code>/Products?method=getAll</code> => <code>/Products/getAll</code></p>
+      <p>The following routing pattern can be used to map SOAP like web service requests where you have one API endpoint and method calls are passed via a query parameter to RESTful URLs. Example: <code>/Products?method=getAll</code> =&gt; <code>/Products/getAll</code></p>
 
-<figure class='code'><figcaption><span>Add new route - Routes.php </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="nx">Router</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;/{:controller}&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;{:controller}&#39;</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]))</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">params</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
+<div><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+</pre></td>
+  <td class="code"><pre><span class="constant">Router</span>::connect(
+  <span class="string"><span class="delimiter">'</span><span class="content">/{:controller}</span><span class="delimiter">'</span></span>, 
+  <span class="predefined">array</span>(<span class="string"><span class="delimiter">'</span><span class="content">controller</span><span class="delimiter">'</span></span> =&gt; <span class="string"><span class="delimiter">'</span><span class="content">{:controller}</span><span class="delimiter">'</span></span>),
+  <span class="keyword">function</span>(<span class="local-variable">$request</span>) {
+    <span class="keyword">if</span> (<span class="predefined">isset</span>(<span class="local-variable">$request</span>-&gt;query[<span class="string"><span class="delimiter">'</span><span class="content">action</span><span class="delimiter">'</span></span>])) {
+        <span class="local-variable">$request</span>-&gt;params[<span class="string"><span class="delimiter">'</span><span class="content">action</span><span class="delimiter">'</span></span>] = <span class="local-variable">$request</span>-&gt;query[<span class="string"><span class="delimiter">'</span><span class="content">action</span><span class="delimiter">'</span></span>]
+    }
+  }
+);
+</pre></td>
+</tr></table>
+</div>
 
-
-<p>Lambdas are amazing&hellip;</p>
+<p>Lambdas are amazing…</p>
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="/categories/#li3" title="Pages tagged li3" class="tag">li3</a><a href="/categories/#php" title="Pages tagged php" class="tag">php</a></span>
@@ -170,7 +171,7 @@
           </div><!-- /.read-more-header -->
           <div class="read-more-content">
             <h3><a href="/blog/2012/08/27/lithium-quick-tip-for-queries-with-join/" title="Lithium Quick Tip for Queries with Join">Lithium Quick Tip for Queries with Join</a></h3>
-            <p>When you are querying Models with relationships and you want to include the joined Models in your result list don&rsquo;t forget to use &hellip;&hellip; <a href="/blog/2012/08/27/lithium-quick-tip-for-queries-with-join/"> Continue reading</a></p>
+            <p>When you are querying Models with relationships and you want to include the joined Models in your result list don’t forget to use instances &hellip;&hellip; <a href="/blog/2012/08/27/lithium-quick-tip-for-queries-with-join/"> Continue reading</a></p>
           </div><!-- /.read-more-content -->
         
         <div class="read-more-list">
@@ -181,8 +182,8 @@
             </div><!-- /.list-item -->
           
             <div class="list-item">
-              <h4><a href="/blog/2012/05/10/setting-up-tdd-for-php-on-mac-os-x-lion/" title="TDD with PHPUnit on Mac OS X Lion">TDD with PHPUnit on Mac OS X Lion</a></h4>
-              <span>Published on May 10, 2012</span>
+              <h4><a href="/blog/2012/05/07/reboot/" title="Reboot... Hello Octopress">Reboot&#8230; Hello Octopress</a></h4>
+              <span>Published on May 07, 2012</span>
             </div><!-- /.list-item -->
           
         </div><!-- /.read-more-list -->
@@ -194,7 +195,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2014 Marcell Jusztin. Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/Z1MM32M4N/hpstr-theme/">HPSTR Theme for Octopress</a>.</span>
+    <span>&copy; 2015 Marcell Jusztin. Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/Z1MM32M4N/hpstr-theme/">HPSTR Theme for Octopress</a>.</span>
 
   </footer>
 </div><!-- /.footer-wrapper -->

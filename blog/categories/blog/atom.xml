@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blog | #morcmarc]]></title>
   <link href="http://morcmarc.com/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://morcmarc.com/"/>
-  <updated>2014-10-11T13:21:02+01:00</updated>
+  <updated>2015-04-20T16:04:40+01:00</updated>
   <id>http://morcmarc.com/</id>
   <author>
     <name><![CDATA[Marcell Jusztin]]></name>
@@ -18,51 +18,51 @@
     <link href="http://morcmarc.com/blog/2012/05/07/reboot/"/>
     <updated>2012-05-07T12:55:00+01:00</updated>
     <id>http://morcmarc.com/blog/2012/05/07/reboot</id>
-    <content type="html"><![CDATA[<p>Recently I stumbled across <a href="http://octopress.org/">Octopress</a>, a <a href="http://jekyllrb.com/">Jekyll</a> based blogging framework. The first thing that grabbed my attention is that I can write my content in markdown. As I was always feeling frustrated when I had to use Wordpress&#8217; editor I felt  that it might be a good time for a change.</p>
+    <content type="html"><![CDATA[<p>Recently I stumbled across <a href="http://octopress.org/">Octopress</a>, a <a href="http://jekyllrb.com/">Jekyll</a> based blogging framework. The first thing that grabbed my attention is that I can write my content in markdown. As I was always feeling frustrated when I had to use Wordpress’ editor I felt  that it might be a good time for a change.</p>
 
-<p>Even though I was never a prolific blogger I knew that it is mostly because of the fact that I have to spend too much time on styling and such things and <em>time is gold</em>. All I wanted is a simple, elegant way to share my ideas and thoughts.</p>
+<p>Even though I was never a prolific blogger I knew that it is mostly because of the fact that I have to spend too much time on styling and such things and <em>time is gold</em>. All I wanted is a simple, elegant way to share my ideas and thoughts. </p>
 
-<h2>First Steps</h2>
+<h2 id="first-steps">First Steps</h2>
 
-<blockquote><p>A blogging framework for hackers.</p></blockquote>
+<blockquote>
+  <p>A blogging framework for hackers.</p>
+</blockquote>
 
 <p>Despite of the motto, installing Octopress was as straightforward as possible and most importantly: <strong>quick</strong>. I just did what the documentation described and I was up and running in a matter of minutes.</p>
 
-<p>Here I have to make a note that I&rsquo;ve already had a working RVM managed Ruby environment installed on my Mac.</p>
+<p>Here I have to make a note that I’ve already had a working RVM managed Ruby environment installed on my Mac.</p>
 
 <!--more-->
 
-
-<h2>What&rsquo;s Next?</h2>
+<h2 id="whats-next">What’s Next?</h2>
 
 <p>So I had my new, lightning fast, <em>databaseless</em> blog ready to be published. The built-in plugins such as Google Analytics, Github, Twitter, Facebook, Disqus, and Google+ came alive instantly (really, it is just opening up that one config file and filling in the right fields).</p>
 
-<p>Now, I had to decide whether I want my old blog post to be migrated to the new system or not. <em>&ldquo;Yes, please&rdquo;</em>. After just a few seconds of googling I found <a href="http://www.kevinquillen.com/blog/2012/01/04/bye-wordpress/">Kevin Quillen&rsquo;s blog post</a> about the necessary steps needed in order to achieve this.</p>
+<p>Now, I had to decide whether I want my old blog post to be migrated to the new system or not. <em>“Yes, please”</em>. After just a few seconds of googling I found <a href="http://www.kevinquillen.com/blog/2012/01/04/bye-wordpress/">Kevin Quillen’s blog post</a> about the necessary steps needed in order to achieve this.</p>
 
-<p>That&rsquo;s where things have started to become a bit complicated. <a href="https://github.com/chitsaou/exitwp">Exitwp</a> does not say which version of <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> you need. I thought it&rsquo;s not a problem, probably the latest&hellip; well, no. What you need is 3.2.1 and you can download it <a href="http://www.crummy.com/software/BeautifulSoup/download/3.x/BeautifulSoup-3.2.1.tar.gz">here</a>. Of course I had to install the python modules manually with <code>python setup.py install</code> as I don&rsquo;t have apt-get nor yum (I haven&rsquo;t tried brewing the packages, please let me know if it&rsquo;s possible).</p>
+<p>That’s where things have started to become a bit complicated. <a href="https://github.com/chitsaou/exitwp">Exitwp</a> does not say which version of <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> you need. I thought it’s not a problem, probably the latest… well, no. What you need is 3.2.1 and you can download it <a href="http://www.crummy.com/software/BeautifulSoup/download/3.x/BeautifulSoup-3.2.1.tar.gz">here</a>. Of course I had to install the python modules manually with <code>python setup.py install</code> as I don’t have apt-get nor yum (I haven’t tried brewing the packages, please let me know if it’s possible).</p>
 
 <p>The rest was easy, <a href="http://disqus.com">Disq.us</a> has great tools and interface for these otherwise pesky tasks.</p>
 
-<h2>But&hellip;</h2>
+<h2 id="but">But…</h2>
 
 <p>Then I had to face the ugly truth that my previous code styling is not really compatible with Exitwp and everything was a mess, BUT all the tags, categories and content made it to Octopress in one piece which was really impressive as I was using custom styling, tables in my Wordpress posts.</p>
 
-<p>Also, sad but true, my old code snippets were out-dated and one or two of them are not even working properly anymore. It was a hard but necessary decision to make. All my &ldquo;hard&rdquo; work went to the rubbish, except the experience I gained during the process which I hope I can use wisely in the future.</p>
+<p>Also, sad but true, my old code snippets were out-dated and one or two of them are not even working properly anymore. It was a hard but necessary decision to make. All my “hard” work went to the rubbish, except the experience I gained during the process which I hope I can use wisely in the future. </p>
 
 <p>I will make the old website available later and I will also set up a 301 redirect.</p>
 
-<h2>Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 
 <p>As Kevin has said:</p>
 
 <ul>
-<li>No database</li>
-<li>No security patches (plugins can be a pain in the ass on Wordpress)</li>
-<li>Speed</li>
-<li>Built-in plugins</li>
-<li>Novelty</li>
+  <li>No database</li>
+  <li>No security patches (plugins can be a pain in the ass on Wordpress)</li>
+  <li>Speed</li>
+  <li>Built-in plugins</li>
+  <li>Novelty</li>
 </ul>
-
 
 <p>I am keen to blog again.</p>
 ]]></content>

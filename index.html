@@ -63,7 +63,6 @@
 <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
-
 </head>
 
 <body id="post-index" class="feature">
@@ -156,31 +155,33 @@
 </header>
 
 <div class="entry-content">
-  <p>The following routing pattern can be used to map SOAP like web service requests where you have one API endpoint and method calls are passed via a query parameter to RESTful URLs. Example: <code>/Products?method=getAll</code> => <code>/Products/getAll</code></p>
+  <p>The following routing pattern can be used to map SOAP like web service requests where you have one API endpoint and method calls are passed via a query parameter to RESTful URLs. Example: <code>/Products?method=getAll</code> =&gt; <code>/Products/getAll</code></p>
 
-<figure class='code'><figcaption><span>Add new route - Routes.php </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="nx">Router</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;/{:controller}&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;{:controller}&#39;</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]))</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">params</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
+<div><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+</pre></td>
+  <td class="code"><pre><span class="constant">Router</span>::connect(
+  <span class="string"><span class="delimiter">'</span><span class="content">/{:controller}</span><span class="delimiter">'</span></span>, 
+  <span class="predefined">array</span>(<span class="string"><span class="delimiter">'</span><span class="content">controller</span><span class="delimiter">'</span></span> =&gt; <span class="string"><span class="delimiter">'</span><span class="content">{:controller}</span><span class="delimiter">'</span></span>),
+  <span class="keyword">function</span>(<span class="local-variable">$request</span>) {
+    <span class="keyword">if</span> (<span class="predefined">isset</span>(<span class="local-variable">$request</span>-&gt;query[<span class="string"><span class="delimiter">'</span><span class="content">action</span><span class="delimiter">'</span></span>])) {
+        <span class="local-variable">$request</span>-&gt;params[<span class="string"><span class="delimiter">'</span><span class="content">action</span><span class="delimiter">'</span></span>] = <span class="local-variable">$request</span>-&gt;query[<span class="string"><span class="delimiter">'</span><span class="content">action</span><span class="delimiter">'</span></span>]
+    }
+  }
+);
+</pre></td>
+</tr></table>
+</div>
 
-
-<p>Lambdas are amazing&hellip;</p>
+<p>Lambdas are amazing…</p>
 
   
   
@@ -223,47 +224,45 @@
 </header>
 
 <div class="entry-content">
-  <p>When you are querying Models with relationships and you want to include the joined Models in your result list don&rsquo;t forget to use instances in your conditions. Example:</p>
+  <p>When you are querying Models with relationships and you want to include the joined Models in your result list don’t forget to use instances in your conditions. Example:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="nx">Users</span><span class="o">::</span><span class="na">first</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-</span><span class='line'>  <span class="s1">&#39;with&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Posts&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="p">));</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
+<div><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+</pre></td>
+  <td class="code"><pre><span class="constant">Users</span>::first(<span class="integer">1</span>, <span class="predefined">array</span>(
+  <span class="string"><span class="delimiter">'</span><span class="content">with</span><span class="delimiter">'</span></span> =&gt; <span class="predefined">array</span>(<span class="string"><span class="delimiter">'</span><span class="content">Posts</span><span class="delimiter">'</span></span>)
+));
+</pre></td>
+</tr></table>
+</div>
 
+<p>This should return an error message about ambiguous ids. To fix the error you’ll need to do the following:</p>
 
-<p>This should return an error message about ambiguous ids. To fix the error you&rsquo;ll need to do the following:</p>
+<div><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+</pre></td>
+  <td class="code"><pre><span class="constant">Users</span>::first(<span class="predefined">array</span>(
+  <span class="string"><span class="delimiter">'</span><span class="content">conditions</span><span class="delimiter">'</span></span> =&gt; <span class="predefined">array</span>(
+    <span class="string"><span class="delimiter">'</span><span class="content">Users.id</span><span class="delimiter">'</span></span> =&gt; <span class="integer">1</span> <span class="comment">// Note the instance name</span>
+  ),
+  <span class="string"><span class="delimiter">'</span><span class="content">with</span><span class="delimiter">'</span></span> =&gt; <span class="predefined">array</span>(
+    <span class="string"><span class="delimiter">'</span><span class="content">Posts</span><span class="delimiter">'</span></span>
+  )
+));
+</pre></td>
+</tr></table>
+</div>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="nx">Users</span><span class="o">::</span><span class="na">first</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
-</span><span class='line'>  <span class="s1">&#39;conditions&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-</span><span class='line'>    <span class="s1">&#39;Users.id&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span> <span class="c1">// Note the instance name</span>
-</span><span class='line'>  <span class="p">),</span>
-</span><span class='line'>  <span class="s1">&#39;with&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-</span><span class='line'>    <span class="s1">&#39;Posts&#39;</span>
-</span><span class='line'>  <span class="p">)</span>
-</span><span class='line'><span class="p">));</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Also watch out for case-sensitivity; code running on Windows might fail on Linux due to inconsistent namings, this applies to your database table names as well. Stick to the <a href="http://lithify.me/docs/manual/quality-code/coding-standards.wiki">conventions</a> and you&rsquo;ll be fine.</p>
+<p>Also watch out for case-sensitivity; code running on Windows might fail on Linux due to inconsistent namings, this applies to your database table names as well. Stick to the <a href="http://lithify.me/docs/manual/quality-code/coding-standards.wiki">conventions</a> and you’ll be fine.</p>
 
   
   
@@ -306,61 +305,13 @@
 </header>
 
 <div class="entry-content">
-  <p>Finders in Lithium provides you with the option to define easily accessible custom queries for your Model following the principles of DRY and MVC. Thanks to Lithium&rsquo;s Aspect Oriented filter system you can achieve a Ruby-like pattern with just a few short lines.</p>
+  <p>Finders in Lithium provides you with the option to define easily accessible custom queries for your Model following the principles of DRY and MVC. Thanks to Lithium’s Aspect Oriented filter system you can achieve a Ruby-like pattern with just a few short lines.</p>
 
 
   
   
     <footer>
       <a class="btn" rel="full-article" href="/blog/2012/08/25/lithium-custom-finder/">Read on &rarr;</a>
-    </footer>
-  
-</div><!-- /.entry-content -->
-
-
-
-
-
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  
-
-
-
-<header>
-  <div class="entry-meta">
-    <span class="entry-date date published updated">
-      <time datetime="2012-05-10T18:21:00+01:00">
-        <a href="/blog/2012/05/10/setting-up-tdd-for-php-on-mac-os-x-lion/">May 10, 2012</a>
-      </time>
-    </span>
-    <span class="author vcard">
-      <span class="fn">
-        <a href="" title="About Marcell Jusztin">Marcell Jusztin</a>
-      </span>
-    </span>
-    
-      &nbsp; &bull; &nbsp;<span class="entry-comments">
-        <a href="/blog/2012/05/10/setting-up-tdd-for-php-on-mac-os-x-lion/#disqus_thread">Comment</a>
-      </span>
-    
-  </div><!-- /.entry-meta -->
-  
-    <h1 class="entry-title">
-      <a href="/blog/2012/05/10/setting-up-tdd-for-php-on-mac-os-x-lion/" rel="bookmark" title="TDD With PHPUnit on Mac OS X Lion" itemprop="url">TDD With PHPUnit on Mac OS X Lion</a>
-    </h1>
-  
-</header>
-
-<div class="entry-content">
-  <p>Test-Driven Development has been around for a while now as more and more companies are using Agile or Extreme Development principles in their daily coding business. Many advanced web frameworks come with built-in support for some kind of testing tool or make it easy to integrate one into your setup. Today I would like to share my experience on getting started with TDD on PHPUnit. I will also show how to setup Code Coverage and Selenium.</p>
-
-
-  
-  
-    <footer>
-      <a class="btn" rel="full-article" href="/blog/2012/05/10/setting-up-tdd-for-php-on-mac-os-x-lion/">Read on &rarr;</a>
     </footer>
   
 </div><!-- /.entry-content -->
@@ -402,17 +353,19 @@
 </header>
 
 <div class="entry-content">
-  <p>Recently I stumbled across <a href="http://octopress.org/">Octopress</a>, a <a href="http://jekyllrb.com/">Jekyll</a> based blogging framework. The first thing that grabbed my attention is that I can write my content in markdown. As I was always feeling frustrated when I had to use Wordpress&#8217; editor I felt  that it might be a good time for a change.</p>
+  <p>Recently I stumbled across <a href="http://octopress.org/">Octopress</a>, a <a href="http://jekyllrb.com/">Jekyll</a> based blogging framework. The first thing that grabbed my attention is that I can write my content in markdown. As I was always feeling frustrated when I had to use Wordpress’ editor I felt  that it might be a good time for a change.</p>
 
-<p>Even though I was never a prolific blogger I knew that it is mostly because of the fact that I have to spend too much time on styling and such things and <em>time is gold</em>. All I wanted is a simple, elegant way to share my ideas and thoughts.</p>
+<p>Even though I was never a prolific blogger I knew that it is mostly because of the fact that I have to spend too much time on styling and such things and <em>time is gold</em>. All I wanted is a simple, elegant way to share my ideas and thoughts. </p>
 
-<h2>First Steps</h2>
+<h2 id="first-steps">First Steps</h2>
 
-<blockquote><p>A blogging framework for hackers.</p></blockquote>
+<blockquote>
+  <p>A blogging framework for hackers.</p>
+</blockquote>
 
 <p>Despite of the motto, installing Octopress was as straightforward as possible and most importantly: <strong>quick</strong>. I just did what the documentation described and I was up and running in a matter of minutes.</p>
 
-<p>Here I have to make a note that I&rsquo;ve already had a working RVM managed Ruby environment installed on my Mac.</p>
+<p>Here I have to make a note that I’ve already had a working RVM managed Ruby environment installed on my Mac.</p>
 
 
   
@@ -440,7 +393,7 @@
 
   <div class="footer-wrapper">
     <footer role="contentinfo">
-      <span>&copy; 2014 Marcell Jusztin. Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/Z1MM32M4N/hpstr-theme/">HPSTR Theme for Octopress</a>.</span>
+      <span>&copy; 2015 Marcell Jusztin. Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/Z1MM32M4N/hpstr-theme/">HPSTR Theme for Octopress</a>.</span>
 
     </footer>
   </div><!-- /.footer-wrapper -->

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Blog | #morcmarc]]></title>
-  <link href="http://morcmarc.com/blog/categories/blog/atom.xml" rel="self"/>
-  <link href="http://morcmarc.com/"/>
-  <updated>2015-04-20T16:04:40+01:00</updated>
-  <id>http://morcmarc.com/</id>
+  <link href="http://morcmarc.github.io/blog/blog/categories/blog/atom.xml" rel="self"/>
+  <link href="http://morcmarc.github.io/blog/"/>
+  <updated>2015-04-21T14:15:51+01:00</updated>
+  <id>http://morcmarc.github.io/blog/</id>
   <author>
     <name><![CDATA[Marcell Jusztin]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Reboot... Hello Octopress]]></title>
-    <link href="http://morcmarc.com/blog/2012/05/07/reboot/"/>
+    <link href="http://morcmarc.github.io/blog/blog/2012/05/07/reboot/"/>
     <updated>2012-05-07T12:55:00+01:00</updated>
-    <id>http://morcmarc.com/blog/2012/05/07/reboot</id>
+    <id>http://morcmarc.github.io/blog/blog/2012/05/07/reboot</id>
     <content type="html"><![CDATA[<p>Recently I stumbled across <a href="http://octopress.org/">Octopress</a>, a <a href="http://jekyllrb.com/">Jekyll</a> based blogging framework. The first thing that grabbed my attention is that I can write my content in markdown. As I was always feeling frustrated when I had to use Wordpress’ editor I felt  that it might be a good time for a change.</p>
 
 <p>Even though I was never a prolific blogger I knew that it is mostly because of the fact that I have to spend too much time on styling and such things and <em>time is gold</em>. All I wanted is a simple, elegant way to share my ideas and thoughts. </p>

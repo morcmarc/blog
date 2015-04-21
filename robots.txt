@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://morcmarc.com/sitemap.xml 
+Sitemap: http://morcmarc.github.io/blog/sitemap.xml 

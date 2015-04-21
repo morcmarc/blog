@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Php | #morcmarc]]></title>
-  <link href="http://morcmarc.com/blog/categories/php/atom.xml" rel="self"/>
-  <link href="http://morcmarc.com/"/>
-  <updated>2015-04-20T16:04:40+01:00</updated>
-  <id>http://morcmarc.com/</id>
+  <link href="http://morcmarc.github.io/blog/blog/categories/php/atom.xml" rel="self"/>
+  <link href="http://morcmarc.github.io/blog/"/>
+  <updated>2015-04-21T14:15:51+01:00</updated>
+  <id>http://morcmarc.github.io/blog/</id>
   <author>
     <name><![CDATA[Marcell Jusztin]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Routing by Query Parameter in Lithium]]></title>
-    <link href="http://morcmarc.com/blog/2012/08/27/routing-by-query-parameter-in-lithium/"/>
+    <link href="http://morcmarc.github.io/blog/blog/2012/08/27/routing-by-query-parameter-in-lithium/"/>
     <updated>2012-08-27T17:24:00+01:00</updated>
-    <id>http://morcmarc.com/blog/2012/08/27/routing-by-query-parameter-in-lithium</id>
+    <id>http://morcmarc.github.io/blog/blog/2012/08/27/routing-by-query-parameter-in-lithium</id>
     <content type="html"><![CDATA[<p>The following routing pattern can be used to map SOAP like web service requests where you have one API endpoint and method calls are passed via a query parameter to RESTful URLs. Example: <code>/Products?method=getAll</code> =&gt; <code>/Products/getAll</code></p>
 
 <div><table class="CodeRay"><tr>
@@ -50,9 +50,9 @@
   
   <entry>
     <title type="html"><![CDATA[Lithium Quick Tip for Queries With Join]]></title>
-    <link href="http://morcmarc.com/blog/2012/08/27/lithium-quick-tip-for-queries-with-join/"/>
+    <link href="http://morcmarc.github.io/blog/blog/2012/08/27/lithium-quick-tip-for-queries-with-join/"/>
     <updated>2012-08-27T17:09:00+01:00</updated>
-    <id>http://morcmarc.com/blog/2012/08/27/lithium-quick-tip-for-queries-with-join</id>
+    <id>http://morcmarc.github.io/blog/blog/2012/08/27/lithium-quick-tip-for-queries-with-join</id>
     <content type="html"><![CDATA[<p>When you are querying Models with relationships and you want to include the joined Models in your result list don’t forget to use instances in your conditions. Example:</p>
 
 <div><table class="CodeRay"><tr>
@@ -97,9 +97,9 @@
   
   <entry>
     <title type="html"><![CDATA[Lithium Custom Finder]]></title>
-    <link href="http://morcmarc.com/blog/2012/08/25/lithium-custom-finder/"/>
+    <link href="http://morcmarc.github.io/blog/blog/2012/08/25/lithium-custom-finder/"/>
     <updated>2012-08-25T15:36:00+01:00</updated>
-    <id>http://morcmarc.com/blog/2012/08/25/lithium-custom-finder</id>
+    <id>http://morcmarc.github.io/blog/blog/2012/08/25/lithium-custom-finder</id>
     <content type="html"><![CDATA[<p>Finders in Lithium provides you with the option to define easily accessible custom queries for your Model following the principles of DRY and MVC. Thanks to Lithium’s Aspect Oriented filter system you can achieve a Ruby-like pattern with just a few short lines.</p>
 
 <!--more-->
